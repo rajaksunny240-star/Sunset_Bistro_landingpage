@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Bistro</title>
+
+<style>
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #fff7f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255,122,89,0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: white;
+}
+
+nav h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fff200;
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: 80vh;
+    text-align: center;
+    padding: 120px 20px;
+    background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero button {
+    padding: 15px 35px;
+    border: none;
+    background: #ff7a59;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: #ff5722;
+    transform: scale(1.05);
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #ff7a59;
+}
+
+/* ================= MENU CARDS ================= */
+.cards {
+    display: grid;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: #ff7a59;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ================= ABOUT / STORY ================= */
+.story {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal 1.5s forwards;
+}
+
+/* ================= SPECIAL OFFERS ================= */
+.card:hover .card-content h3 {
+    color: #ff5722;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    background: #ff7a59;
+    color: white;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #fff200;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= DESKTOP GRID ================= */
+@media(min-width:768px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .hero h1 { font-size: 4rem; }
+    nav { padding: 20px 80px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h1>Sunset Bistro</h1>
+    <ul>
+        <li>Home</li>
+        <li>Menu</li>
+        <li>About</li>
+        <li>Offers</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Sunset Bistro</h1>
+        <p>Fine dining with a cozy and inviting atmosphere</p>
+        <button>Reserve a Table</button>
+    </div>
+</section>
+
+<!-- MENU SECTION -->
+<section class="section">
+    <h2>Our Menu</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Grilled Salmon">
+            <div class="card-content">
+                <h3>Grilled Salmon</h3>
+                <p>Fresh salmon served with seasonal vegetables and a light sauce.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Classic Burger">
+            <div class="card-content">
+                <h3>Classic Burger</h3>
+                <p>Beef patty with cheddar, lettuce, tomato, and golden fries.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Margherita Pizza">
+            <div class="card-content">
+                <h3>Margherita Pizza</h3>
+                <p>Stone-baked pizza with tomato, mozzarella, and fresh basil.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="section">
+    <h2>About Us</h2>
+    <div class="story">
+        <p>Sunset Bistro has been delighting guests with fresh ingredients and warm service for over a decade. Our cozy atmosphere and creative menu make every visit memorable.</p>
+    </div>
+</section>
+
+<!-- SPECIAL OFFERS SECTION -->
+<section class="section">
+    <h2>Special Offers</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Lunch Combo">
+            <div class="card-content">
+                <h3>Lunch Combo</h3>
+                <p>Main dish, side, and drink at a special price.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Weekend Brunch">
+            <div class="card-content">
+                <h3>Weekend Brunch</h3>
+                <p>Enjoy a variety of breakfast favorites on weekends.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Chef Special">
+            <div class="card-content">
+                <h3>Chef's Special</h3>
+                <p>A rotating menu item made with seasonal ingredients.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 Sunset Bistro</p>
+    <div class="social-icons">
+        <a href="#">&#x1F30E; Instagram</a>
+        <a href="#">&#x1F426; Twitter</a>
+        <a href="#">&#x1F4F1; Facebook</a>
+    </div>
+</footer>
+
+</body>
+</html>
